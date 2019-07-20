@@ -1,0 +1,27 @@
+sql.txt
+
+create table userinfo(
+    username varchar(25),
+    password char(1),
+    uid int,
+    gid int,
+    comment varchar(50),
+    homedir varchar(50),
+    shell varchar(50)
+    );
+
+
+sudo cp /etc/passwd /var/lib/mysql-files/
+
+alter table userinfo add id int(3) zerofill primary key auto_increment first;
+
+
+create table userinfo(
+    user_id int(9) zerofill primary key auto_increment,
+    user_name varchar(25),
+    password varchar(40)
+);
+
+
+
+insert into userinfo(user_name,password) values ("admin1","admin2");
