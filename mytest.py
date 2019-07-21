@@ -2,6 +2,7 @@
 from MysqlPython import * 
 from hashlib import sha1
 import re
+import os
 
 def user_name_check(data):
     m = MySqlPy("dict_user")          
@@ -40,10 +41,12 @@ def vocabulary_search(data):
 
 # a = vocabulary_search("absorb")
 
-a = re.findall(r"1 \S{1,25}", '1 admin')
+#a = re.findall(r"1 \S{1,25}", '1 admin')
 
-sign_in("admin","123")
+#sign_in("admin","123")
 #password_check("admin","admin")
 # a = user_name_check("admin")
 # print(a)
 # print(a)
+
+os.remove("./client_history.txt")
