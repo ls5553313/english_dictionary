@@ -1,6 +1,7 @@
 # mytest.py
 from MysqlPython import * 
 from hashlib import sha1
+import re
 
 def user_name_check(data):
     m = MySqlPy("dict_user")          
@@ -28,9 +29,21 @@ def sign_in(name,password):
         m = MySqlPy("dict_user")
         m.MyExecute(sql,[name,pwd])
 
+def vocabulary_search(data):
+    m = MySqlPy("dict_user")
+    sql = "select meaning from dictionary where word = %s"
+    result = m.MySelectAll(sql,[data])
+    if result:
+        return result[0][0].rstrip()
+    else:
+        return("cant find the word!")
 
+# a = vocabulary_search("absorb")
+
+a = re.findall(r"1 \S{1,25}", '1 admin')
 
 sign_in("admin","123")
 #password_check("admin","admin")
 # a = user_name_check("admin")
+# print(a)
 # print(a)
