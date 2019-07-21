@@ -25,3 +25,15 @@ create table userinfo(
 
 
 insert into userinfo(user_name,password) values ("admin1","admin2");
+
+
+alter table userinfo add primary key (user_id,user_name)
+
+create table dictionary(
+    word varchar(50) primary key,
+    meaning varchar(100)
+);
+
+alter table dictionary modify word varchar(50);
+
+truncate table dictionary;
